@@ -65,6 +65,7 @@ app.use(flash());
 // This adds the external router defined routes to the app.
 // Note: this includes a prefix to each of those routes.
 //       Example: /mapping/, /data/, ...
+app.use('/', require('./routes/general-routes'));
 app.use('/data', require('./routes/data-routes'));
 app.use('/mapping', require('./routes/mapping-routes'));
 app.use('/searching', require('./routes/searching-routes'));
