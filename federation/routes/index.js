@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var sqlQuery = require('../controller/sqlQueryController')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -7,38 +8,44 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-	if (!hasValidLocation(req.body) || !hasValidType(req.body) {
+	console.log(req.body);
+	if (!hasValidLocation(req.body) || !hasValidType(req.body)) {
 		res.send("Invalid data");
 		return;
 	}
-
+	//TODO: Check permissions
+	//TODO: send to database
+	res.send(sqlQuery.writeSQLAdd(req.body));
 });
 
 router.post('/edit', function(req, res, next) {
-	if (!hasValidLocation(req.body) || !hasValidType(req.body) {
+	if (!hasValidLocation(req.body) || !hasValidType(req.body)) {
 		res.send("Invalid data");
 		return;
 	}
-	
+
+	res.send(sqlQuery.writeSQLEdit(req.body));	
 });
 
 router.post('/remove', function(req, res, next) {
-	if (!hasValidLocation(req.body) || !hasValidType(req.body) {
+	if (!hasValidLocation(req.body) || !hasValidType(req.body)) {
 		res.send("Invalid data");
 		return;
 	}
 	
+	res.send(sqlQuery.writeSQLRemove(req.body));	
 });
 
-router.get('/get', function(req, res, next) {
-	if (!hasValidLocation(req.body) || !hasValidType(req.body) {
+router.post('/get', function(req, res, next) {
+	if (!hasValidLocation(req.body) || !hasValidType(req.body)) {
 		res.send("Invalid data");
 		return;
 	}
 	
+	res.send(sqlQuery.writeSQLGet(req.body));	
 });
 
-router.get('/database', function(req, res, next) {
+router.post('/database', function(req, res, next) {
 	if (!hasValidLocation(req.body)) {
 		res.send("Invalid data");
 		return;
@@ -51,9 +58,10 @@ function hasValidLocation(data) {
 		return false;
 	}
 
-	if (!data.location.isArray()) {
-		data.location = [data.location];
-	}
+	//TODO
+	//if (!data.location.isArray()) {
+	//	data.location = [data.location];
+	//}
 
 	return true;
 }
