@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-	console.log(req.body);
 	if (!hasValidLocation(req.body) || !hasValidType(req.body)) {
 		res.send("Invalid data");
 		return;
