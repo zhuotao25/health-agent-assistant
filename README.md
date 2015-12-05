@@ -11,3 +11,5 @@ CS320: Software Engineering
 4. Run `npm install` in project folder.
 5. Run the application with `node main.js`.
 6. Open your browser of choice and type `localhost:3000` in the address bar.
+
+.
