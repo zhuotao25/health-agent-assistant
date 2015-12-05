@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-	if (!hasValidLocation(req.body) || !hasValidType(req.body) {
+	if (!hasValidLocation(req.body) || !hasValidType(req.body)) {
 		res.send("Invalid data");
 		return;
 	}
@@ -15,7 +15,7 @@ router.post('/add', function(req, res, next) {
 });
 
 router.post('/edit', function(req, res, next) {
-	if (!hasValidLocation(req.body) || !hasValidType(req.body) {
+	if (!hasValidLocation(req.body) || !hasValidType(req.body)) {
 		res.send("Invalid data");
 		return;
 	}
@@ -23,7 +23,7 @@ router.post('/edit', function(req, res, next) {
 });
 
 router.post('/remove', function(req, res, next) {
-	if (!hasValidLocation(req.body) || !hasValidType(req.body) {
+	if (!hasValidLocation(req.body) || !hasValidType(req.body)) {
 		res.send("Invalid data");
 		return;
 	}
@@ -31,7 +31,7 @@ router.post('/remove', function(req, res, next) {
 });
 
 router.get('/get', function(req, res, next) {
-	if (!hasValidLocation(req.body) || !hasValidType(req.body) {
+	if (!hasValidLocation(req.body) || !hasValidType(req.body)) {
 		res.send("Invalid data");
 		return;
 	}
