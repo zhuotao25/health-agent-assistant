@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var sqlQuery = require('../controller/sqlQueryController')
+var sqlQuery = require('../controller/sqlQueryWriter')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

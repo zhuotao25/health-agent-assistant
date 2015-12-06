@@ -50,9 +50,9 @@ exports.writeSQLGet = function(data) {
 	var where = 'WHERE ';
 	for (var key in data) {
 		if (data.hasOwnProperty(key) && key != 'location' && key != 'type') {
-			if (isTimeVariable(key)){
-				where += key+ '>='+ data[key].substring(0,data[key].indexof('-'))+
-					' AND '+key+ '<='+ data[key].substring(data[key].indexof('-')+1);
+			if (isTimeVariable(key)) {
+				where += key + '>=' + data[key].substring(0, data[key].indexof('-')) +
+					' AND ' + key + '<=' + data[key].substring(data[key].indexof('-') + 1);
 			}
 			else if (typeof key === 'string') {
 				where += key + '=\'' + data[key] + '\'';
@@ -67,9 +67,12 @@ exports.writeSQLGet = function(data) {
 	return str + '\n' + where;
 }
 function isTimeVariable(key){
-	if(key== 'Date Collected'|| key == 'Pumping Date' || key == 'Time In' || key == 'Time Out'|| key == 'Date Verified'|| key == 'Previous Inspection Date')
-	return true;
+	if(key == 'Date Collected'|| key == 'Pumping Date' || 
+			key == 'Time In' || key == 'Time Out'||
+			key == 'Date Verified'|| key == 'Previous Inspection Date') {
+		return true;
+	}
 	else
-	return  false;
+		return  false;
 }
 //TODO: /api/database command
