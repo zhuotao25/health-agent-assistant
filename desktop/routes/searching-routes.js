@@ -5,9 +5,19 @@ var express = require('express');
 var router = express.Router();
 
 // Example post
-router.post('/post', function(req, res) {console.log("posted");});
+router.post('/', function(req, res) {
+	var data = req.body; //Data takes type of json object
+	for(var attribute in data){
+		console.log(attribute+": "+data[attribute]);
+	}
+	
+	// Test 
+	res.render('results', {data:data.restName});
+});
 
 // Example route
-router.get('/', function(req, res) {console.log("routed");});
+router.get('/', function(req, res) {
+	res.render('search');
+});
 
 module.exports = router;
