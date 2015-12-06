@@ -50,7 +50,7 @@ exports.writeSQLGet = function(data) {
 	var where = 'WHERE ';
 	for (var key in data) {
 		if (data.hasOwnProperty(key) && key != 'location' && key != 'type') {
-			if isTimeVariable(key){
+			if (isTimeVariable(key)){
 				where += key+ '>='+ data[key].substring(0,data[key].indexof('-'))+
 					' AND '+key+ '<='+ data[key].substring(data[key].indexof('-')+1);
 			}
