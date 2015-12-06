@@ -1,4 +1,5 @@
-var sqlQuery = require('sqlQueryWriter');
+var sqlQuery = require('./sqlQueryWriter');
+var db = require('./dbCommunicator');
 
 exports.registerNewUser = function(userObject, callback) {
 	//do the queries, define string error based on the query
@@ -8,8 +9,7 @@ exports.registerNewUser = function(userObject, callback) {
 	//TODO: Fix privilege level
 	userObject.privilegeLevel = 1;
 	var query = sqlQuery.writeSQLAdd(userObject);
-
-	//TODO: Send query to databases
+	//db.run(query, function(err, 
 
 	var error = "Did not work";
 	result.success = false;
