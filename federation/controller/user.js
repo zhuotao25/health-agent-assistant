@@ -1,6 +1,16 @@
+var sqlQuery = require('sqlQueryWriter');
+
 exports.registerNewUser = function(userObject, callback) {
 	//do the queries, define string error based on the query
 	var result = {};
+	userObject.location = ['Sunderland', 'Leverett'];
+	userObject.type = 'User';
+	//TODO: Fix privilege level
+	userObject.privilegeLevel = 1;
+	var query = sqlQuery.writeSQLAdd(userObject);
+
+	//TODO: Send query to databases
+
 	var error = "Did not work";
 	result.success = false;
 	if(result.success){
@@ -15,6 +25,10 @@ exports.registerNewUser = function(userObject, callback) {
 
 exports.editPassword = function(userObject, callback){
 	//do the queries, define string error based on the query
+	userObject.location = ['Sunderland', 'Leverett'];
+	userObject.type = 'User';
+	var query = sqlQuery.writeSQLEdit(userObject);
+
 	var result = {};
 	var error = "Did not work";
 	result.success = false;
@@ -30,6 +44,11 @@ exports.editPassword = function(userObject, callback){
 
 exports.loginUser = function(userObject, callback){
 	//do the queries, define string error based on the query
+	userObject.location = ['Sunderland', 'Leverett'];
+	userObject.type = 'User';
+	var query = sqlQuery.writeSQLGet(userObject);
+	//TODO: Send query
+
 	var result = {};
 	var error = "Did not work";
 	result.success = false;
@@ -45,6 +64,11 @@ exports.loginUser = function(userObject, callback){
 
 exports.addSearch = function(userObject, callback){
 	//do the queries, define string error based on the query
+	userObject.location = ['Sunderland', 'Leverett'];
+	userObject.type = 'Saved Searches';
+	//TODO: Fix privilege level
+	var query = sqlQuery.writeSQLAdd(userObject);
+
 	var result = {};
 	var error = "Did not work";
 	result.success = false;
