@@ -10,7 +10,7 @@
     </ul>
 
     <div id="tab-1" class="tab-content current">
-        <div class="form" id="add_new_form">
+        <div class="form add_new_form" >
             <label>Add a New Restaurant</label>
             <form method="post" action="#">
                 Name: <input type="text" name="name"> <br>
@@ -38,7 +38,7 @@
             </select>
                 <button>Choose</button>
             </form>
-            <button class="add_new_btn">Add New Restaurant</button>
+            <button class="add_new_btn" type="button">Add New Restaurant</button>
         </div>
         <div class="form">
             <label>Inspection</label>
@@ -142,12 +142,12 @@
     </div>
 
     <div id="tab-2" class="tab-content">
-        <div class="form">
+        <div class="form add_new_form">
             <label>Add a New Well</label>
             <form method="post" action="#">
                 Duis aute: <input type="text" name="name"> <br>
                 Duis aute:  <input type="text" name="name"> <br>
-                <button>Add</button><button>Cancel</button>
+                <button>Add</button><button class="add_new_btn" type="button">Cancel</button>
             </form>
         </div>
         <div class="form">
@@ -161,7 +161,7 @@
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
             </select><br>
-                <button>Add New</button>
+                <button class="add_new_btn" type="button">Add New</button>
             </form>
         </div>
         <div class="form">
@@ -208,12 +208,12 @@
     </div>
 
     <div id="tab-3" class="tab-content">
-        <div class="form">
+        <div class="form add_new_form">
             <label>Add a New Tank</label>
             <form method="post" action="#">
                 Duis aute: <input type="text" name="name"> <br>
                 Duis aute:  <input type="text" name="name"> <br>
-                <button>Add</button><button>Cancel</button>
+                <button>Add</button><button class="add_new_btn" type="button">Cancel</button>
             </form>
         </div>
 
@@ -228,7 +228,7 @@
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
             </select><br>
-                <button>Add New</button>
+                <button class="add_new_btn" type="button">Add New</button>
             </form>
         </div>
         <div class="form">
@@ -236,19 +236,25 @@
             <form method="post" action="#">
                 1. Pumping Date: <input type="text" name="name"> <br>
                 2. Quantity Pumped(gallons): <input type="text" name="name"> <br>
-                3. Component:
-                4. Other:
-                5. Effluent Tee Filter Present
-                6. If yes, was it cleaned?
-                7. Observed condition of component pumbed
-                8. System pumbed by(name):
-                9. System pumbed by(License):
-                10. System pumbed by(company):
-                11. Location where contents were disposed:
-                12. Hauler:
-                13. Hauler date:
-                14. Receiving Facility:
-                15. Receiving Facility Date: 
+                3. Component: <input type="text" name="name"> <br>
+                4. Other: <input type="text" name="name"> <br>
+                5. Effluent Tee Filter Present: <fieldset id="group1">
+                            <input type="radio" value="" name="group1">Yes
+                            <input type="radio" value="" name="group1">No
+                </fieldset>
+                6. If yes, was it cleaned? <fieldset id="group2">
+                            <input type="radio" value="" name="group2">Yes
+                            <input type="radio" value="" name="group2">No
+                </fieldset>
+                7. Observed condition of component pumbed: <input type="text" name="name"> <br>
+                8. System pumbed by(name): <input type="text" name="name"> <br>
+                9. System pumbed by(License): <input type="text" name="name"> <br>
+                10. System pumbed by(company): <input type="text" name="name"> <br>
+                11. Location where contents were disposed: <input type="text" name="name"> <br>
+                12. Hauler: <input type="text" name="name"> <br>
+                13. Hauler date: <input type="text" name="name"> <br>
+                14. Receiving Facility: <input type="text" name="name"> <br>
+                15. Receiving Facility Date: <input type="text" name="name"> <br>
                 <button>Submit</button><button>Delete</button>
             </form>
         </div>
@@ -299,7 +305,7 @@
         border:2px solid white;
     }
 
-    #add_new_form{
+    .add_new_form{
         display:none;
     }
 </style>
@@ -349,7 +355,7 @@
 
     $(function(){
         $('.add_new_btn').on('click',function(){
-            $('#add_new_form').slideToggle(1000);
+            $('.add_new_form').slideToggle(1000);
         });
     });
 
