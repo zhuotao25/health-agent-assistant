@@ -1,0 +1,209 @@
+<h1>Data Entry</h1>
+
+<div class="container">
+
+    <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1">Health</li>
+        <li class="tab-link" data-tab="tab-2">Water</li>
+        <li class="tab-link" data-tab="tab-3">Septic</li>
+
+    </ul>
+
+    <div id="tab-1" class="tab-content current">
+
+        <div class="form">
+            <label>Add a New Restaurant</label>
+            <form method="post" action="#">
+                Duis aute: <input type="text" name="name"> <br>
+                Duis aute:  <input type="text" name="name"> <br>
+                <button>Add</button><button>Cancel</button>
+            </form>
+        </div>
+
+        <div class="form">
+            <label>Restaurant Info</label>
+            <form method="post" action="#">
+                Duis aute: <input type="text" name="name"> <br>
+                Duis aute:  <input type="text" name="name"> <br>
+                Choose:  <select>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select><br>
+                <button>Add New</button>
+            </form>
+        </div>
+        <div class="form">
+            <form method="post" action="#">
+                Duis aute: <input type="text" name="name"> <br>
+                Duis aute:  <input type="text" name="name"> <br>
+                <div class="form">
+                    <label>Violation</label>
+                    <div >
+                        <input autocomplete="off" id="field1" name="field1" type="text" placeholder="Input Violation" />
+                        <button id="b1" class="add-more" type="button">+</button>
+                    </div>
+
+                </div>
+                <button>Submit</button><button>Delete</button>
+            </form>
+        </div>
+
+    </div>
+
+
+
+    <div id="tab-2" class="tab-content">
+        <div class="form">
+            <label>Add a New Well</label>
+            <form method="post" action="#">
+                Duis aute: <input type="text" name="name"> <br>
+                Duis aute:  <input type="text" name="name"> <br>
+                <button>Add</button><button>Cancel</button>
+            </form>
+        </div>
+
+        <div class="form">
+            <label>Well Info</label>
+            <form method="post" action="#">
+                Duis aute: <input type="text" name="name"> <br>
+                Duis aute:  <input type="text" name="name"> <br>
+                Choose:  <select>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select><br>
+                <button>Add New</button>
+            </form>
+        </div>
+        <div class="form">
+            <form method="post" action="#">
+                Duis aute: <input type="text" name="name"> <br>
+                Duis aute:  <input type="text" name="name"> <br>
+                <button>Submit</button><button>Delete</button>
+            </form>
+        </div>
+    </div>
+    <div id="tab-3" class="tab-content">
+        <div class="form">
+            <label>Add a New Tank</label>
+            <form method="post" action="#">
+                Duis aute: <input type="text" name="name"> <br>
+                Duis aute:  <input type="text" name="name"> <br>
+                <button>Add</button><button>Cancel</button>
+            </form>
+        </div>
+
+        <div class="form">
+            <label>Tank Info</label>
+            <form method="post" action="#">
+                Duis aute: <input type="text" name="name"> <br>
+                Duis aute:  <input type="text" name="name"> <br>
+                Choose:  <select>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select><br>
+                <button>Add New</button>
+            </form>
+        </div>
+        <div class="form">
+            <form method="post" action="#">
+                Duis aute: <input type="text" name="name"> <br>
+                Duis aute:  <input type="text" name="name"> <br>
+                <button>Submit</button><button>Delete</button>
+            </form>
+        </div>
+    </div>
+
+</div><!-- container -->
+
+
+<style>
+
+    .container{
+        width: 800px;
+        margin: 0 auto;
+    }
+
+
+
+    ul.tabs{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+    ul.tabs li{
+        background: none;
+        color: #222;
+        display: inline-block;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+
+    ul.tabs li.current{
+        background: #ededed;
+        color: #222;
+    }
+
+    .tab-content{
+        display: none;
+        background: #ededed;
+        padding: 15px;
+    }
+
+    .tab-content.current{
+        display: inherit;
+    }
+    .form{
+        padding:10px;
+        margin:10px 0;
+        border:2px solid white;
+    }
+</style>
+
+<script>
+    $(document).ready(function(){
+
+        $('ul.tabs li').click(function(){
+            var tab_id = $(this).attr('data-tab');
+
+            $('ul.tabs li').removeClass('current');
+            $('.tab-content').removeClass('current');
+
+            $(this).addClass('current');
+            $("#"+tab_id).addClass('current');
+        });
+
+    });
+
+
+    $(document).ready(function(){
+        var next = 1;
+        $(".add-more").click(function(e){
+            e.preventDefault();
+            var addto = "#field" + next;
+            var addRemove = "#field" + (next);
+            next = next + 1;
+            var newIn = '<input autocomplete="off" id="field' + next + '" name="field' + next + '" type="text" placeholder="Input Violation">';
+            var newInput = $(newIn);
+            var removeBtn = '<button id="remove' + (next - 1) + '" class="remove-me" >-</button></div><div id="field">';
+            var removeButton = $(removeBtn);
+            $(addto).after(newInput);
+            $(addRemove).after(removeButton);
+            $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+            $("#count").val(next);
+
+            $('.remove-me').click(function(e){
+                e.preventDefault();
+                var fieldNum = this.id.charAt(this.id.length-1);
+                var fieldID = "#field" + fieldNum;
+                $(this).remove();
+                $(fieldID).remove();
+            });
+        });
+    });
+</script>
